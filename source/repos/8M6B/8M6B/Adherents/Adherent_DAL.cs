@@ -37,8 +37,10 @@ namespace Repo.DAL
 
                     commande.Connection = connexion;
 
-                    commande.CommandText = "insert into Adherent(DateAdhesion,Email,NomContact,PrenomContact)"
-                                           + "values(@DateAdhesion,@Email,@NomContact,@PrenomContact)";
+                    commande.CommandText = "insert into Adherent(id,societe,DateAdhesion,Email,NomContact,PrenomContact)"
+                                           + "values(@ID,@Societe,@DateAdhesion,@Email,@NomContact,@PrenomContact)";
+                    commande.Parameters.Add(new SqlParameter("@ID", ID));
+                    commande.Parameters.Add(new SqlParameter("@Societe", Societe));
                     commande.Parameters.Add(new SqlParameter("@DateAdhesion", DateTime.Now));
                     commande.Parameters.Add(new SqlParameter("@Email", Email));
                     commande.Parameters.Add(new SqlParameter("@NomContact", NomContact));
@@ -51,6 +53,7 @@ namespace Repo.DAL
 
             }
         }
+        
 
     }
 }

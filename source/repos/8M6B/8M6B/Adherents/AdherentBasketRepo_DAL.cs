@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repo.DAL
 {
-    public class AdherentBasketRepo_DAL : Repo_DAL<AdherentBasket_DAL>
+    public class AdherentBasketRepo : Repo_DAL<AdherentBasket_DAL>
     {
         public override List<AdherentBasket_DAL> GetAll()
         {
@@ -38,7 +38,7 @@ namespace Repo.DAL
             CreerConnexionEtCommande();
 
             commande.CommandText = "select ID, ID_Adherent, ID_Panier from PanierAdherents where ID_Adherent=@ID_Adherent";
-            commande.Parameters.Add(new SqlParameter("@ID_Adherent", IDAdherentBasket));
+            commande.Parameters.Add(new SqlParameter("@ID", ID));
             var reader = commande.ExecuteReader();
 
             var listeDAdherents = new List<AdherentBasket_DAL>();
@@ -62,7 +62,7 @@ namespace Repo.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select ID,ID_Adherent from PanierAdherents where ID=@ID";
+            commande.CommandText = "select id,id_Adherent from PanierAdherents where id=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", ID));
             var reader = commande.ExecuteReader();
 
@@ -84,13 +84,13 @@ namespace Repo.DAL
             return p;
         }
 
-        public override AdherentBasket_DAL Insert(AdherentBasket PanierAdherent)
+        public override AdherentBasket_DAL Insert(AdherentBasket_DAL PanierAdherent)
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "insert into PanierAdherents(ID, ID_Adherent, ID_Panier)"
-                                    + " values (@ID, @ID_Adherent, @ID_Panier); select scope_identity()";
-            commande.Parameters.Add(new SqlParameter("@ID", ID));
+            commande.CommandText = "insert into PanierAdherents(id, ID_Adherent, ID_Panier)"
+                                    + " values (@id, @ID_Adherent, @ID_Panier); select scope_identity()";
+            commande.Parameters.Add(new SqlParameter("@id", ID));
             commande.Parameters.Add(new SqlParameter("@ID_Adherent", ID_Adherent));
             commande.Parameters.Add(new SqlParameter("@ID_Panier", ID_Panier));
 
@@ -107,11 +107,11 @@ namespace Repo.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "update PanierAdherents set ID=@ID, ID_Adherent=@ID_Adherent, ID_Panier=@ID_Panier)"
-                                    + " where ID=@ID";
+            commande.CommandText = "update PanierAdherents set id=@ID, id_Adherent=@ID_Adherent, id_Panier=@ID_Panier)"
+                                    + " where id=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", ID));
             commande.Parameters.Add(new SqlParameter("@ID_Adherent", ID_Adherent));
-            commande.Parameters.Add(new SqlParameter("@ID_Panier", ID_Panier));
+            commande.Parameters.Add(new SqlParameter("@ID_Panier", ID_Basket));
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)
@@ -128,7 +128,7 @@ namespace Repo.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "delete from PanierAdherents where ID=@ID, ID_Adherent=@ID_Adherent";
+            commande.CommandText = "delete from PanierAdherents where id=@ID, id_Adherent=@ID_Adherent";
             commande.Parameters.Add(new SqlParameter("@ID", ID));
             commande.Parameters.Add(new SqlParameter("@ID_Adherent", ID_Adherent));
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();

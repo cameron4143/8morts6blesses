@@ -18,7 +18,7 @@ namespace Repo.DAL
         public int id_fournisseurs { get; set; }
         public bool desactive { get; set; }
 
-      
+
 
 
 
@@ -50,3 +50,5 @@ namespace Repo.DAL
 
             }
         }
+    }
+}

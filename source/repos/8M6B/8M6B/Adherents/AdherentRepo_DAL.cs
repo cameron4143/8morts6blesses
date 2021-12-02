@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repo.DAL
 {
-    public class AdherentBasketRepo : Repo_DAL<Adherent_DAL>
+    public class AdherentBasketRepo_DAL<type_DAl> : Repo_DAL<Adherent_DAL>
     {
         public override List<Adherent_DAL> GetAll()
         {
@@ -25,7 +25,7 @@ namespace Repo.DAL
                                         reader.GetInt32(1),
                                         reader.GetInt32(2),
 
-                listeDAdherents.Add(p);
+                listeDAdherents.Add(p));
             }
 
             DetruireConnexionEtCommande();
@@ -58,13 +58,13 @@ namespace Repo.DAL
             return listeDAdherents;
         }
 
-        public override Adherent_DAL Insert(Adherent Adherent)
+        public override Adherent_DAL Insert(Adherent_DAL Adherent)
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "insert into Adherent(ID,societe,Nomcontact,PrenomContact,Email,DateAdhesion )"
-                                    + " values (@ID, @societe, @Nomcontact, @PrenomContact, @Email, @DateAdhesion); select scope_identity()";
-            commande.Parameters.Add(new SqlParameter("@ID", ID));
+            commande.CommandText = "insert into Adherent(id,societe,Nomcontact,PrenomContact,Email,DateAdhesion )"
+                                    + " values (@id, @societe, @Nomcontact, @PrenomContact, @Email, @DateAdhesion); select scope_identity()";
+            commande.Parameters.Add(new SqlParameter("@id", id));
             commande.Parameters.Add(new SqlParameter("@Nomcontact", Nomcontact));
             commande.Parameters.Add(new SqlParameter("@PrenomContact", PrenomContact));
             commande.Parameters.Add(new SqlParameter("@Email", Email));
@@ -83,9 +83,9 @@ namespace Repo.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "update Adherent set ID=@ID, societe=@societe, Nomcontact=@Nomcontact, PrenomContact=@PrenomContact, Email=@Email, DateAdhesion=@DateAdhesion )"
+            commande.CommandText = "update Adherent set id=@id, societe=@societe, Nomcontact=@Nomcontact, PrenomContact=@PrenomContact, Email=@Email, DateAdhesion=@DateAdhesion )"
                                     + " where ID=@ID";
-            commande.Parameters.Add(new SqlParameter("@ID", ID));
+            commande.Parameters.Add(new SqlParameter("@id", id));
             commande.Parameters.Add(new SqlParameter("@societe", societe));
             commande.Parameters.Add(new SqlParameter("@Nomcontact", Nomcontact));
             commande.Parameters.Add(new SqlParameter("@PrenomContact", PrenomContact));
@@ -107,13 +107,9 @@ namespace Repo.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "delete from Adherent where ID=@ID";
-            commande.Parameters.Add(new SqlParameter("@ID", ID));
-            commande.Parameters.Add(new SqlParameter("@societe", societe));
-            commande.Parameters.Add(new SqlParameter("@Nomcontact", Nomcontact));
-            commande.Parameters.Add(new SqlParameter("@PrenomContact", PrenomContact));
-            commande.Parameters.Add(new SqlParameter("@Email", Email));
-            commande.Parameters.Add(new SqlParameter("@DateAdhesion", DateAdhesion));
+            commande.CommandText = "delete from Adherent where id=@id";
+            commande.Parameters.Add(new SqlParameter("@id", id));
+            
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)

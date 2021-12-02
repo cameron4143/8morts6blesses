@@ -25,7 +25,7 @@ namespace Repo.DAL
                                         reader.GetInt32(1),
                                         reader.GetInt32(2),
 
-                listeDeFournisseur.Add(p);
+                listeDeFournisseur.Add(p));
             }
 
             DetruireConnexionEtCommande();
@@ -58,13 +58,13 @@ namespace Repo.DAL
             return listeDeFournisseur;
         }
 
-        public override Provider_DAL Insert(Fournisseur Fournisseur)
+        public override Provider_DAL Insert(Provider_DAL Fournisseur)
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "insert into Fournisseurs(ID,societe,Nomcontact,PrenomContact,civilite,Adressenormee)"
-                                    + " values (@ID, @societe, @Nomcontact, @PrenomContact, @civilite, @Adressenormee); select scope_identity()";
-            commande.Parameters.Add(new SqlParameter("@ID", ID));
+            commande.CommandText = "insert into Fournisseurs(id,societe,Nomcontact,PrenomContact,civilite,Adressenormee)"
+                                    + " values (@id, @societe, @Nomcontact, @PrenomContact, @civilite, @Adressenormee); select scope_identity()";
+            commande.Parameters.Add(new SqlParameter("@id", id));
             commande.Parameters.Add(new SqlParameter("@Nomcontact", Nomcontact));
             commande.Parameters.Add(new SqlParameter("@PrenomContact", PrenomContact));
             commande.Parameters.Add(new SqlParameter("@civilite", civilite));
@@ -107,8 +107,8 @@ namespace Repo.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "delete from Adherent where ID=@ID";
-            commande.Parameters.Add(new SqlParameter("@ID", ID));
+            commande.CommandText = "delete from Adherent where id=@id";
+            commande.Parameters.Add(new SqlParameter("@id", id));
             commande.Parameters.Add(new SqlParameter("@societe", societe));
             commande.Parameters.Add(new SqlParameter("@Nomcontact", Nomcontact));
             commande.Parameters.Add(new SqlParameter("@PrenomContact", PrenomContact));
@@ -118,7 +118,7 @@ namespace Repo.DAL
 
             if (nombreDeLignesAffectees != 1)
             {
-                throw new Exception($"Impossible de supprimer {ID}");
+                throw new Exception($"Impossible de supprimer {id}");
             }
 
             DetruireConnexionEtCommande();

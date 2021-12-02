@@ -23,23 +23,25 @@ namespace Repo.DAL
 
             using (var connexion = new SqlConnection(chaineDeConnexion))
             {
-                
+
                 connexion.Open();
                 using (var commande = new SqlCommand())
                 {
-                    
+
                     commande.Connection = connexion;
 
                     commande.CommandText = "insert into PanierAdherents(ID,ID_Adherent,ID_Panier)"
-                                           + "values(@ID,@ID_Adherent,@ID_Basket)";
+                                           + "values(@ID,@ID_Adherent,@ID_Panier)";
 
                     commande.Parameters.Add(new SqlParameter("@ID", ID));
                     commande.Parameters.Add(new SqlParameter("@ID_Adherent", ID_Adherent));
-                    commande.Parameters.Add(new SqlParameter("@ID_BAsket", ID_Panier));
+                    commande.Parameters.Add(new SqlParameter("@ID_Panier", ID_Panier));
 
                     commande.ExecuteNonQuery();
                 }
 
                 connexion.Close();
+            }
+        }
     }
 }

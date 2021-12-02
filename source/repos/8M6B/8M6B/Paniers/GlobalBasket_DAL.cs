@@ -13,7 +13,7 @@ namespace Repo.DAL
 
         public int ID { get; private set; }
         public int semaine { get; set; }
-        
+
 
         public void Insert()
         {
@@ -33,10 +33,12 @@ namespace Repo.DAL
 
                     commande.Parameters.Add(new SqlParameter("@id", id));
                     commande.Parameters.Add(new SqlParameter("@semaine", semaine));
-                    
+
 
                 }
                 connexion.Close();
 
             }
         }
+    }
+}

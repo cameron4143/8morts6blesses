@@ -42,9 +42,11 @@ namespace Repo.DAL
                     commande.Parameters.Add(new SqlParameter("@PrenomContact", PrenomContact));
                     commande.Parameters.Add(new SqlParameter("@Adressenormee", Adressenormee));
                     commande.Parameters.Add(new SqlParameter("@DateAdhesion", DateAdhesion));
-                 
+
                 }
                 connexion.Close();
 
             }
         }
+    }
+}

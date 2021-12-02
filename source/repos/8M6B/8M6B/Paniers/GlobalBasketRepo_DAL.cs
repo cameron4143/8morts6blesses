@@ -25,7 +25,7 @@ namespace Repo.DAL
                                         reader.GetInt32(1),
                                         reader.GetInt32(2),
 
-                listeDePanier.Add(p);
+                listeDePanier.Add(p));
             }
 
             DetruireConnexionEtCommande();
@@ -59,7 +59,7 @@ namespace Repo.DAL
             return listeDePanier;
         }
 
-        public override GlobalBasket_DAL Insert(GlobalBasket GlobalBasket)
+        public override GlobalBasket_DAL Insert(GlobalBasket_DAL GlobalBasket)
         {
             CreerConnexionEtCommande();
 
@@ -78,7 +78,7 @@ namespace Repo.DAL
             return GlobalBasket;
         }
 
-        public override GlobalBasket_DAL Update(GlobalBasket GlobalBasket)
+        public override GlobalBasket_DAL Update(GlobalBasket_DAL GlobalBasket)
         {
             CreerConnexionEtCommande();
 
@@ -99,7 +99,7 @@ namespace Repo.DAL
             return GlobalBasket;
         }
 
-        public override void Delete(GlobalBasket GlobalBasket)
+        public override void Delete(GlobalBasket_DAL GlobalBasket)
         {
             CreerConnexionEtCommande();
 

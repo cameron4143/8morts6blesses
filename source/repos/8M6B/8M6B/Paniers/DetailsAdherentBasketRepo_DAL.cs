@@ -25,7 +25,7 @@ namespace Repo.DAL
                                         reader.GetInt32(1),
                                         reader.GetInt32(2),
 
-                listeDetailsBasketAdherent.Add(p);
+                listeDetailsBasketAdherent.Add(p));
             }
 
             DetruireConnexionEtCommande();

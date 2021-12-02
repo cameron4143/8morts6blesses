@@ -25,7 +25,7 @@ namespace Repo.DAL
                                         reader.GetInt32(1),
                                         reader.GetInt32(2),
 
-                listeDeFournisseur.Add(p);
+                listeDeFournisseur.Add(p));
             }
 
             DetruireConnexionEtCommande();
@@ -59,7 +59,7 @@ namespace Repo.DAL
             return listeDeFournisseur;
         }
 
-        public override ProviderRef_DAL Insert(FournisseurREF FournisseurREF)
+        public override ProviderRef_DAL Insert(ProviderRef_DAL FournisseurREF)
         {
             CreerConnexionEtCommande();
 

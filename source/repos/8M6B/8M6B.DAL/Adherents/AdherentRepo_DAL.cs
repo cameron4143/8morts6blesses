@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repo.DAL
+namespace huitMsixB.DAL
 {
     public class AdherentBasketRepo_DAL<type_DAl> : Repo_DAL<Adherent_DAL>
     {

@@ -8,9 +8,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8M6B.Metier", "8M6B.Metier\8M6B.Metier.csproj", "{6823F20F-C40C-419E-9380-E0FFE412BB3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "huitMsixB.METIER", "8M6B.Metier\huitMsixB.METIER.csproj", "{6823F20F-C40C-419E-9380-E0FFE412BB3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8M6B.DAL", "8M6B.DAL\8M6B.DAL.csproj", "{458F5EBF-19DC-4D08-B16C-AA61D17AEA5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "huitMsixB.DAL", "8M6B.DAL\huitMsixB.DAL.csproj", "{458F5EBF-19DC-4D08-B16C-AA61D17AEA5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

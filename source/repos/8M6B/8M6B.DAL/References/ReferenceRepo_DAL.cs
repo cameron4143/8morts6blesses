@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repo.DAL
+namespace huitMsixB.DAL
 {
     public class ReferenceRepo_DAL : Repo_DAL<Reference_DAL>
     {

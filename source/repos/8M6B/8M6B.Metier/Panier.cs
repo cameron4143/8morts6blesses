@@ -1,42 +1,23 @@
 ﻿using System;
 
-namespace 8M6B.Metier
+namespace huitMsixB.METIER
 {
-    /// <summary>
-    /// Représente un point dans un repère à 2 dimensions
-    /// </summary>
     public class Panier
     {
         #region champs et accesseurs
 
-
-    //accesseur simplifié
-    /// <summary>
-    /// Ordonnée du point
-    /// </summary>
-
-
-
-    /// <summary>
-    /// ID du point dans la BDD
-    /// </summary>
-    public int ID { get; set; }
+         public int id { get; set; }
 
 
         #endregion
 
         #region constructeur
 
-        /// <summary>
-        /// Construit un point
-        /// </summary>
-        /// <param name="abscisse">Abscisse du point (X)</param>
-        /// <param name="ordonnee">Ordonnée du point (Y)</param>
-        public Panier(int abscisse, int ordonnee)
-        {
-            X = abscisse;
-            Y = ordonnee;
-        }
+        //public Panier(int abscisse, int ordonnee)
+        //{
+        //    X = abscisse;
+        //    Y = ordonnee;
+        //}
 
         public Panier(int id, int abscisse, int ordonnee)
             : this(abscisse, ordonnee)
